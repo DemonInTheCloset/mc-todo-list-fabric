@@ -19,9 +19,11 @@ fun init() {
 }
 
 class TodoList : ModInitializer {
-    private var clipboard: Item = Item(Item.Settings().group(ItemGroup.MISC).maxCount(1))
+    private var clipboard = ClipboardItem()
 
     override fun onInitialize() {
         Registry.register(Registry.ITEM, Identifier("todolist", "clipboard"), clipboard)
     }
 }
+
+class ClipboardItem : Item(Settings().group(ItemGroup.MISC).maxCount(1))
