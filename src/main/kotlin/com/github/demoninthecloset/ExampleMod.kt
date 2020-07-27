@@ -1,4 +1,4 @@
-package net.fabricmc.example
+package com.github.demoninthecloset
 
 import net.fabricmc.api.ModInitializer
 import net.minecraft.item.Item
