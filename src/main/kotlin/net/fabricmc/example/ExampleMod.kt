@@ -1,5 +1,11 @@
 package net.fabricmc.example
 
+import net.fabricmc.api.ModInitializer
+import net.minecraft.item.Item
+import net.minecraft.item.ItemGroup
+import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
+
 // For support join https://discord.gg/v6v4pMv
 
 @Suppress("unused")
@@ -9,5 +15,13 @@ fun init() {
     // Proceed with mild caution.
 
     println("Hello Fabric world!")
+    TodoList().onInitialize()
 }
 
+class TodoList : ModInitializer {
+    private var clipboard: Item = Item(Item.Settings().group(ItemGroup.MISC).maxCount(1))
+
+    override fun onInitialize() {
+        Registry.register(Registry.ITEM, Identifier("todolist", "clipboard"), clipboard)
+    }
+}
