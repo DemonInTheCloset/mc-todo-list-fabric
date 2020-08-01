@@ -13,7 +13,7 @@ class ClipboardItem : Item(
     Settings().group(ItemGroup.MISC).maxCount(1)) {
     override fun use(world: World?, user: PlayerEntity?, hand: Hand?): TypedActionResult<ItemStack> {
         MinecraftClient.getInstance()
-            .openScreen(Screen(Gui()))
+            .openScreen(ClipboardScreen(ClipboardGui()))
         return super.use(world, user, hand)
     }
 }
